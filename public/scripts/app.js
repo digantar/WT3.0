@@ -26,6 +26,15 @@ function getPageByName(name) {
 	return _('pages/' + name);
 }
 
+function displayNoPage() {
+	var pages = getPages();
+	var i = 0;
+	while (i < pages.length) {
+		pages[i].style.display = "none";
+		i++;
+	}
+}
+
 function changePage(page) {
 	//page is just a dom page element here
 	var pages = getPages();
@@ -61,6 +70,7 @@ function isLoggedIn() {
 
 document.addEventListener('DOMContentLoaded', function() {
    //add the work will be done here
+   displayNoPage();
    page.base('/');
    page();
 
